@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="seed_pushups">Push-ups</string>
+    <string name="seed_pushups_easier">Knees / hands elevated</string>
+    <string name="seed_pushups_harder">Feet elevated → archer</string>
+    <string name="seed_rows">Rows (table / towel)</string>
+    <string name="seed_rows_easier">More upright body</string>
+    <string name="seed_rows_harder">Horizontal, feet elevated</string>
+    <string name="seed_dips">Chair dips</string>
+    <string name="seed_dips_easier">Knees bent</string>
+    <string name="seed_dips_harder">Legs straight, feet elevated</string>
+    <string name="seed_lunges">Reverse lunges</string>
+    <string name="seed_lunges_easier">Shorter range</string>
+    <string name="seed_lunges_harder">Jumping lunges</string>
+    <string name="seed_plank">Plank</string>
+    <string name="seed_plank_easier">On knees</string>
+    <string name="seed_plank_harder">One limb lifted</string>
+    <string name="seed_pullups">Pull-ups</string>
+    <string name="seed_pullups_easier">Table rows</string>
+    <string name="seed_pullups_harder">Slow negatives (5 s) → weighted</string>
+    <string name="seed_pullups_note">Max clean reps; table rows if no bar</string>
+    <string name="seed_pike">Pike push-ups</string>
+    <string name="seed_pike_easier">Hands further from feet</string>
+    <string name="seed_pike_harder">Feet elevated</string>
+    <string name="seed_diamond">Diamond push-ups</string>
+    <string name="seed_diamond_easier">Close grip on knees</string>
+    <string name="seed_diamond_harder">Feet elevated</string>
+    <string name="seed_bulgarian">Bulgarian split squats</string>
+    <string name="seed_bulgarian_easier">Static split squat</string>
+    <string name="seed_bulgarian_harder">Assisted pistol squat</string>
+    <string name="seed_hollow">Hollow body hold</string>
+    <string name="seed_hollow_easier">Knees bent</string>
+    <string name="seed_hollow_harder">Arms overhead</string>
+    <string name="seed_side_plank">Side plank</string>
+    <string name="seed_side_plank_easier">Knee down</string>
+    <string name="seed_side_plank_harder">Top leg raised</string>
+    <string name="seed_template_a">A: Push &amp; core</string>
+    <string name="seed_template_b">B: Pull &amp; core</string>
+</resources>

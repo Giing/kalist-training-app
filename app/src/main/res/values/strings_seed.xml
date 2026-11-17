@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="seed_pushups">Pompes</string>
+    <string name="seed_pushups_easier">Sur les genoux / mains surélevées</string>
+    <string name="seed_pushups_harder">Pieds surélevés → pompes archer</string>
+    <string name="seed_rows">Rowing (table / serviette)</string>
+    <string name="seed_rows_easier">Corps plus vertical</string>
+    <string name="seed_rows_harder">Horizontal, pieds surélevés</string>
+    <string name="seed_dips">Dips sur chaise</string>
+    <string name="seed_dips_easier">Genoux fléchis</string>
+    <string name="seed_dips_harder">Jambes tendues, pieds surélevés</string>
+    <string name="seed_lunges">Fentes arrière</string>
+    <string name="seed_lunges_easier">Amplitude réduite</string>
+    <string name="seed_lunges_harder">Fentes sautées</string>
+    <string name="seed_plank">Gainage (planche)</string>
+    <string name="seed_plank_easier">Sur les genoux</string>
+    <string name="seed_plank_harder">Un membre levé</string>
+    <string name="seed_pullups">Tractions</string>
+    <string name="seed_pullups_easier">Rowing sous une table</string>
+    <string name="seed_pullups_harder">Négatives lentes (5 s) → lestées</string>
+    <string name="seed_pullups_note">Max de répétitions propres ; rowing sous une table s’il n’y a pas de barre</string>
+    <string name="seed_pike">Pompes piquées (pike)</string>
+    <string name="seed_pike_easier">Mains plus loin des pieds</string>
+    <string name="seed_pike_harder">Pieds surélevés</string>
+    <string name="seed_diamond">Pompes diamant</string>
+    <string name="seed_diamond_easier">Prise serrée sur les genoux</string>
+    <string name="seed_diamond_harder">Pieds surélevés</string>
+    <string name="seed_bulgarian">Squats bulgares</string>
+    <string name="seed_bulgarian_easier">Fente statique</string>
+    <string name="seed_bulgarian_harder">Pistol squat assisté</string>
+    <string name="seed_hollow">Hollow body (gainage creux)</string>
+    <string name="seed_hollow_easier">Genoux fléchis</string>
+    <string name="seed_hollow_harder">Bras au-dessus de la tête</string>
+    <string name="seed_side_plank">Gainage latéral</string>
+    <string name="seed_side_plank_easier">Genou au sol</string>
+    <string name="seed_side_plank_harder">Jambe du dessus levée</string>
+    <string name="seed_template_a">A : Poussée &amp; gainage</string>
+    <string name="seed_template_b">B : Tirage &amp; gainage</string>
+</resources>
