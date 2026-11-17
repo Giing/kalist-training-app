@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Kalist</string>
+
+    <!-- Navigation -->
+    <string name="nav_calendar">Calendrier</string>
+    <string name="nav_templates">Modèles</string>
+    <string name="nav_exercises">Exercices</string>
+    <string name="nav_settings">Réglages</string>
+
+    <!-- Common -->
+    <string name="unit_seconds_short">s</string>
+    <string name="cd_decrease">Diminuer %1$s</string>
+    <string name="cd_increase">Augmenter %1$s</string>
+
+    <!-- Settings -->
+    <string name="settings_theme">Thème</string>
+    <string name="theme_light">Clair</string>
+    <string name="theme_dark">Sombre</string>
+    <string name="theme_system">Système</string>
+    <string name="settings_accent">Couleur d’accent</string>
+    <string name="accent_orange">Orange</string>
+    <string name="accent_teal">Bleu canard</string>
+    <string name="accent_indigo">Indigo</string>
+    <string name="accent_green">Vert</string>
+    <string name="accent_pink">Rose</string>
+    <string name="accent_dynamic">Couleurs dynamiques (Material You)</string>
+    <string name="settings_training">Entraînement</string>
+    <string name="settings_weekly_goal">Objectif de séances / semaine</string>
+    <string name="settings_default_rest">Repos par défaut</string>
+    <string name="settings_language">Langue</string>
+    <string name="language_system">Système</string>
+    <string name="language_french">Français</string>
+    <string name="language_english">English</string>
+</resources>

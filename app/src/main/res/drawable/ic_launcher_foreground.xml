@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- bar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,34h48a2.5,2.5 0,0 1,0 5h-48a2.5,2.5 0,0 1,0 -5z" />
+    <!-- head -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,49m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+    <!-- arms, torso and legs -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="5"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:fillColor="#00000000"
+        android:pathData="M42,37L46,52L54,57L62,52L66,37M54,57L54,68M54,68L48,78M54,68L60,78" />
+</vector>

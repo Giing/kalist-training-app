@@ -43,18 +43,13 @@ jobs:
         if: steps.detect.outputs.present == 'true'
         uses: gradle/actions/setup-gradle@v4
 
-      # Fixed debug key so every build installs as an update over the previous one.
-      - name: Install shared debug keystore
-        if: steps.detect.outputs.present == 'true'
-        run: |
-          mkdir -p ~/.android
-          cp ci/debug.keystore ~/.android/debug.keystore
-
-      - name: Build debug APK
+      # Signed with ci/debug.keystore (configured in app/build.gradle.kts) so every build
+      # installs as an update over the previous one.
+      - name: Build debug APK and run unit tests
         if: steps.detect.outputs.present == 'true'
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace
+          ./gradlew assembleDebug testDebugUnitTest --stacktrace
 
       - name: Collect APK
         if: steps.detect.outputs.present == 'true'

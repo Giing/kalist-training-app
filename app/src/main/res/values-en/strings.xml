@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Navigation -->
+    <string name="nav_calendar">Calendar</string>
+    <string name="nav_templates">Templates</string>
+    <string name="nav_exercises">Exercises</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Common -->
+    <string name="unit_seconds_short">s</string>
+    <string name="cd_decrease">Decrease %1$s</string>
+    <string name="cd_increase">Increase %1$s</string>
+
+    <!-- Settings -->
+    <string name="settings_theme">Theme</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_system">System</string>
+    <string name="settings_accent">Accent color</string>
+    <string name="accent_orange">Orange</string>
+    <string name="accent_teal">Teal</string>
+    <string name="accent_indigo">Indigo</string>
+    <string name="accent_green">Green</string>
+    <string name="accent_pink">Pink</string>
+    <string name="accent_dynamic">Dynamic color (Material You)</string>
+    <string name="settings_training">Training</string>
+    <string name="settings_weekly_goal">Weekly session goal</string>
+    <string name="settings_default_rest">Default rest</string>
+    <string name="settings_language">Language</string>
+    <string name="language_system">System</string>
+    <string name="language_french">Français</string>
+    <string name="language_english">English</string>
+</resources>
