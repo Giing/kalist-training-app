@@ -60,6 +60,9 @@ interface SessionDao {
     @Query("UPDATE session_exercise SET variant = :variant WHERE id = :id")
     suspend fun updateVariant(id: Long, variant: String?)
 
+    @Query("UPDATE session_exercise SET skipped = :skipped WHERE id = :id")
+    suspend fun updateSkipped(id: Long, skipped: Boolean)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun upsertSet(log: SetLog): Long
 

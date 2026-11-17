@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_edit">Modifier</string>
+    <string name="action_done">Terminé</string>
+    <string name="session_leave">Quitter la séance</string>
+    <string name="session_leave_title">Quitter la séance ?</string>
+    <string name="session_leave_body">La séance reste en cours : vous pourrez la reprendre depuis le calendrier. Vos séries sont déjà enregistrées.</string>
+    <string name="session_resume_later">Reprendre plus tard</string>
+    <string name="session_abandon">Abandonner</string>
+    <string name="session_finish">Terminer</string>
+    <string name="session_continue">Continuer</string>
+    <string name="session_round_of">Tour %1$d / %2$d</string>
+    <string name="session_set_of">Série %1$d / %2$d</string>
+    <string name="session_variant">Variante utilisée</string>
+    <string name="session_previous">Dernière fois</string>
+    <string name="session_goal">Objectif</string>
+    <string name="session_best">Record</string>
+    <string name="session_try_harder">Tous les tours au max la dernière fois. Essayez la variante plus difficile : %1$s</string>
+    <string name="session_reps">Répétitions</string>
+    <string name="session_seconds">Secondes</string>
+    <string name="session_log_set">Valider la série</string>
+    <string name="session_back_step">Précédent</string>
+    <string name="session_skip_set">Passer la série</string>
+    <string name="session_skip_exercise">Passer l’exercice</string>
+    <string name="session_skipped">Passé</string>
+    <string name="session_all_exercises">Tous les exercices</string>
+    <string name="session_start_timer">Lancer le chrono</string>
+    <string name="session_stop_timer">Arrêter</string>
+    <string name="session_target_time">Objectif : %1$s</string>
+    <string name="session_rest">Repos</string>
+    <string name="session_next">Ensuite : %1$s</string>
+    <string name="session_add_15s">+15 s</string>
+    <string name="session_skip_rest">Passer</string>
+    <string name="session_finish_title">Terminer la séance</string>
+    <string name="session_rpe_question">Effort perçu (RPE, 1 à 10), facultatif</string>
+    <string name="session_notes">Notes</string>
+    <string name="cd_rest_remaining">Repos restant %1$s</string>
+    <string name="cd_remove_set">Supprimer la série %1$d</string>
+    <string name="summary_title">Bilan de la séance</string>
+    <string name="detail_title">Séance</string>
+    <string name="summary_duration">%1$d min</string>
+    <string name="summary_rpe">RPE %1$d / 10</string>
+    <string name="summary_pb">Record !</string>
+    <string name="summary_variant">Variante : %1$s</string>
+    <string name="summary_goal">Objectif %1$s</string>
+    <string name="summary_total">total %1$s</string>
+    <string name="summary_best_set">meilleure série %1$s</string>
+    <string name="summary_set_n">Série %1$d</string>
+    <string name="summary_add_set">Ajouter une série</string>
+    <string name="detail_delete_title">Supprimer la séance ?</string>
+    <string name="detail_delete_body">Les séries enregistrées seront définitivement supprimées.</string>
+    <string name="start_session">Démarrer une séance</string>
+    <string name="start_pick_template">Choisir un modèle</string>
+    <string name="start_suggested">Suggéré</string>
+    <string name="start_no_templates">Créez d’abord un modèle dans l’onglet Modèles.</string>
+    <string name="start_go">C’est parti</string>
+    <plurals name="session_sets_remaining">
+        <item quantity="one">Il reste %1$d série non faite.</item>
+        <item quantity="many">Il reste %1$d séries non faites.</item>
+        <item quantity="other">Il reste %1$d séries non faites.</item>
+    </plurals>
+    <plurals name="summary_new_pbs">
+        <item quantity="one">%1$d nouveau record</item>
+        <item quantity="many">%1$d nouveaux records</item>
+        <item quantity="other">%1$d nouveaux records</item>
+    </plurals>
+</resources>

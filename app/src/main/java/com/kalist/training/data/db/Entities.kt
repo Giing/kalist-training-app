@@ -106,6 +106,8 @@ data class SessionExercise(
     val targetMinSnapshot: Int,
     val targetMaxSnapshot: Int,
     val noteSnapshot: String? = null,
+    /** Skipped for the rest of the session (schema v2). */
+    @ColumnInfo(defaultValue = "0") val skipped: Boolean = false,
 )
 
 @Entity(

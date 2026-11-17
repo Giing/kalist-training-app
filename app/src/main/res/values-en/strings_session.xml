@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_edit">Edit</string>
+    <string name="action_done">Done</string>
+    <string name="session_leave">Leave session</string>
+    <string name="session_leave_title">Leave the session?</string>
+    <string name="session_leave_body">The session stays in progress: you can resume it from the calendar. Your sets are already saved.</string>
+    <string name="session_resume_later">Resume later</string>
+    <string name="session_abandon">Abandon</string>
+    <string name="session_finish">Finish</string>
+    <string name="session_continue">Keep going</string>
+    <string name="session_round_of">Round %1$d / %2$d</string>
+    <string name="session_set_of">Set %1$d / %2$d</string>
+    <string name="session_variant">Variant used</string>
+    <string name="session_previous">Previous</string>
+    <string name="session_goal">Goal</string>
+    <string name="session_best">Best</string>
+    <string name="session_try_harder">Top of the range on every set last time. Try the harder variant: %1$s</string>
+    <string name="session_reps">Reps</string>
+    <string name="session_seconds">Seconds</string>
+    <string name="session_log_set">Log set</string>
+    <string name="session_back_step">Back</string>
+    <string name="session_skip_set">Skip set</string>
+    <string name="session_skip_exercise">Skip exercise</string>
+    <string name="session_skipped">Skipped</string>
+    <string name="session_all_exercises">All exercises</string>
+    <string name="session_start_timer">Start timer</string>
+    <string name="session_stop_timer">Stop</string>
+    <string name="session_target_time">Target: %1$s</string>
+    <string name="session_rest">Rest</string>
+    <string name="session_next">Next: %1$s</string>
+    <string name="session_add_15s">+15 s</string>
+    <string name="session_skip_rest">Skip</string>
+    <string name="session_finish_title">Finish the session</string>
+    <string name="session_rpe_question">Perceived effort (RPE, 1 to 10), optional</string>
+    <string name="session_notes">Notes</string>
+    <string name="cd_rest_remaining">Rest remaining %1$s</string>
+    <string name="cd_remove_set">Remove set %1$d</string>
+    <string name="summary_title">Session summary</string>
+    <string name="detail_title">Session</string>
+    <string name="summary_duration">%1$d min</string>
+    <string name="summary_rpe">RPE %1$d / 10</string>
+    <string name="summary_pb">New best!</string>
+    <string name="summary_variant">Variant: %1$s</string>
+    <string name="summary_goal">Goal %1$s</string>
+    <string name="summary_total">total %1$s</string>
+    <string name="summary_best_set">best set %1$s</string>
+    <string name="summary_set_n">Set %1$d</string>
+    <string name="summary_add_set">Add set</string>
+    <string name="detail_delete_title">Delete the session?</string>
+    <string name="detail_delete_body">Its logged sets will be permanently deleted.</string>
+    <string name="start_session">Start session</string>
+    <string name="start_pick_template">Pick a template</string>
+    <string name="start_suggested">Suggested</string>
+    <string name="start_no_templates">Create a template in the Templates tab first.</string>
+    <string name="start_go">Let’s go</string>
+    <plurals name="session_sets_remaining">
+        <item quantity="one">%1$d set not done yet.</item>
+        <item quantity="other">%1$d sets not done yet.</item>
+    </plurals>
+    <plurals name="summary_new_pbs">
+        <item quantity="one">%1$d new personal best</item>
+        <item quantity="other">%1$d new personal bests</item>
+    </plurals>
+</resources>

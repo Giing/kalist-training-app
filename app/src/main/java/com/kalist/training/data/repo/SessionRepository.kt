@@ -113,6 +113,8 @@ class SessionRepository @Inject constructor(
     suspend fun setVariant(sessionExerciseId: Long, variant: String?) =
         sessionDao.updateVariant(sessionExerciseId, variant?.trim()?.ifBlank { null })
 
+    suspend fun setSkipped(sessionExerciseId: Long, skipped: Boolean) = sessionDao.updateSkipped(sessionExerciseId, skipped)
+
     suspend fun updateCursor(sessionId: Long, step: Int, restEndsAt: Instant?) =
         sessionDao.updateCursor(sessionId, step, restEndsAt)
 

@@ -8,6 +8,8 @@ import androidx.navigation.compose.composable
 import com.kalist.training.ui.calendar.CalendarScreen
 import com.kalist.training.ui.exercises.ExerciseEditScreen
 import com.kalist.training.ui.exercises.ExercisesScreen
+import com.kalist.training.ui.session.ActiveSessionScreen
+import com.kalist.training.ui.session.SessionDetailScreen
 import com.kalist.training.ui.settings.SettingsScreen
 import com.kalist.training.ui.templates.TemplateEditScreen
 import com.kalist.training.ui.templates.TemplatesScreen
@@ -34,5 +36,16 @@ fun KalistNavHost(navController: NavHostController, modifier: Modifier = Modifie
             ExerciseEditScreen(onDone = back, onOpenHistory = { navController.navigate(ExerciseHistoryRoute(it)) })
         }
         composable<SettingsRoute> { SettingsScreen() }
+        composable<ActiveSessionRoute> {
+            ActiveSessionScreen(
+                onFinished = { id ->
+                    navController.navigate(SessionDetailRoute(id, justFinished = true)) {
+                        popUpTo<ActiveSessionRoute> { inclusive = true }
+                    }
+                },
+                onLeave = back,
+            )
+        }
+        composable<SessionDetailRoute> { SessionDetailScreen(onBack = back) }
     }
 }
