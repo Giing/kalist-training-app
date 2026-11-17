@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="history_empty_title">Pas encore d’historique</string>
+    <string name="history_empty_body">Les séances terminées avec cet exercice apparaîtront ici.</string>
+    <string name="history_chart_title">Meilleure série par séance</string>
+    <string name="history_all_time_best">Record : %1$s le %2$s</string>
+    <string name="history_need_two">Le graphique apparaît après deux séances.</string>
+    <string name="history_sessions">Séances</string>
+    <string name="cd_history_chart">Graphique de la meilleure série sur %1$d séances : de %2$s à %3$s, record %4$s</string>
+</resources>

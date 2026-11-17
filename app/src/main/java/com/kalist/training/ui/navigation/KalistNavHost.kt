@@ -10,6 +10,7 @@ import com.kalist.training.ui.exercises.ExerciseEditScreen
 import com.kalist.training.ui.exercises.ExercisesScreen
 import com.kalist.training.ui.session.ActiveSessionScreen
 import com.kalist.training.ui.session.SessionDetailScreen
+import com.kalist.training.ui.history.ExerciseHistoryScreen
 import com.kalist.training.ui.settings.DataSection
 import com.kalist.training.ui.settings.SettingsScreen
 import com.kalist.training.ui.templates.TemplateEditScreen
@@ -53,5 +54,8 @@ fun KalistNavHost(navController: NavHostController, modifier: Modifier = Modifie
             )
         }
         composable<SessionDetailRoute> { SessionDetailScreen(onBack = back) }
+        composable<ExerciseHistoryRoute> {
+            ExerciseHistoryScreen(onBack = back, onOpenSession = { navController.navigate(SessionDetailRoute(it)) })
+        }
     }
 }

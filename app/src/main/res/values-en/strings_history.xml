@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="history_empty_title">No history yet</string>
+    <string name="history_empty_body">Completed sessions with this exercise will show up here.</string>
+    <string name="history_chart_title">Best set per session</string>
+    <string name="history_all_time_best">Best: %1$s on %2$s</string>
+    <string name="history_need_two">The chart appears after two sessions.</string>
+    <string name="history_sessions">Sessions</string>
+    <string name="cd_history_chart">Chart of the best set over %1$d sessions: from %2$s to %3$s, best %4$s</string>
+</resources>

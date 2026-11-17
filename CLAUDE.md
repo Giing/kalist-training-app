@@ -2,6 +2,24 @@
 
 Local calisthenics training planner and tracker (Android).
 
+## Project
+
+- Spec: `claude/calisthenics-app-spec.md` (build order in section 10 is done: steps 1–7).
+- Kotlin + Jetpack Compose + Material 3, Hilt, Room (schema in `app/schemas`, migrations in
+  `KalistDatabase.MIGRATIONS`, never destructive), DataStore for settings. No INTERNET permission.
+- Strings: French in `res/values*` (default), English in `res/values-en`. Add every new string to both.
+- Packages: `data/db` (entities, DAOs), `data/repo`, `data/backup` (JSON + CSV/XLSX journal),
+  `domain` (pure logic: circuit, progression, next template, stats), `ui/<feature>`.
+
+## Build and test locally
+
+- Needs the Android SDK at `/opt/android-sdk` (`local.properties`); install with
+  `sdkmanager "platforms;android-37.0" "build-tools;37.0.0"` if missing.
+- `./gradlew assembleDebug testDebugUnitTest` (unit, Room DAO, migration, Robolectric UI tests).
+- UI tests save screenshots to `app/build/screenshots/` for visual review.
+- Robolectric gotchas: seed/block on the DB before launching the activity, never while it runs;
+  a TextField inside an AlertDialog keeps Compose "busy" in Robolectric.
+
 ## APK builds
 
 - `.github/workflows/build-apk.yml` builds a debug APK on every push and publishes it
