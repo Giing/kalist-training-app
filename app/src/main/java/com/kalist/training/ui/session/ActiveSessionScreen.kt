@@ -79,6 +79,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kalist.training.R
 import com.kalist.training.data.db.TargetType
 import com.kalist.training.ui.components.NumberStepper
+import com.kalist.training.ui.components.RpePicker
 import com.kalist.training.ui.components.formatDuration
 import com.kalist.training.ui.components.formatGoal
 import com.kalist.training.ui.components.formatSets
@@ -433,32 +434,28 @@ private fun RestOverlay(ui: ActiveSessionUi, onSkip: () -> Unit, onAdd: () -> Un
 private fun FinishDialog(remaining: Int, onConfirm: (Int?, String?) -> Unit, onDismiss: () -> Unit) {
     var rpe by rememberSaveable { mutableStateOf<Int?>(null) }
     var notes by rememberSaveable { mutableStateOf("") }
+    var showNotes by rememberSaveable { mutableStateOf(false) }
     AlertDialog(
         onDismissRequest = onDismiss,
         title = { Text(stringResource(R.string.session_finish_title)) },
         text = {
-            Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 if (remaining > 0) {
                     Text(pluralStringResource(R.plurals.session_sets_remaining, remaining, remaining), color = MaterialTheme.colorScheme.tertiary)
                 }
                 Text(stringResource(R.string.session_rpe_question), style = MaterialTheme.typography.bodyMedium)
-                FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                    (1..10).forEach { value ->
-                        FilterChip(
-                            selected = rpe == value,
-                            onClick = { rpe = if (rpe == value) null else value },
-                            label = { Text("$value") },
-                            modifier = Modifier.height(48.dp),
-                        )
-                    }
+                RpePicker(rpe, { rpe = it })
+                if (showNotes) {
+                    OutlinedTextField(
+                        value = notes,
+                        onValueChange = { notes = it },
+                        label = { Text(stringResource(R.string.session_notes)) },
+                        minLines = 2,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                } else {
+                    TextButton(onClick = { showNotes = true }) { Text(stringResource(R.string.session_add_note)) }
                 }
-                OutlinedTextField(
-                    value = notes,
-                    onValueChange = { notes = it },
-                    label = { Text(stringResource(R.string.session_notes)) },
-                    minLines = 2,
-                    modifier = Modifier.fillMaxWidth(),
-                )
             }
         },
         confirmButton = { Button(onClick = { onConfirm(rpe, notes) }) { Text(stringResource(R.string.session_finish)) } },

@@ -99,7 +99,8 @@ class TemplateEditViewModel @Inject constructor(
         viewModelScope.launch {
             if (isNew) {
                 val rest = settingsRepository.settings.first().defaultRestSeconds
-                _form.update { it.copy(restSeconds = rest, loaded = true) }
+                // New templates stay out of the A/B rotation unless the user opts in.
+                _form.update { it.copy(restSeconds = rest, inRotation = false, loaded = true) }
             } else {
                 val t = repository.getWithExercises(templateId) ?: return@launch
                 original = t.template

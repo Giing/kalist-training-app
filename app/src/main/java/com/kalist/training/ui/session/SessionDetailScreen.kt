@@ -54,6 +54,7 @@ import com.kalist.training.data.db.TargetType
 import com.kalist.training.ui.components.BackButton
 import com.kalist.training.ui.components.ConfirmDialog
 import com.kalist.training.ui.components.NumberStepper
+import com.kalist.training.ui.components.RpePicker
 import com.kalist.training.ui.components.formatGoal
 import com.kalist.training.ui.components.formatSets
 import com.kalist.training.ui.components.formatValue
@@ -155,11 +156,7 @@ private fun EditDetails(rpe: Int?, notes: String, onSave: (Int?, String) -> Unit
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
             Text(stringResource(R.string.session_rpe_question))
-            FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                (1..10).forEach { v ->
-                    FilterChip(selected = r == v, onClick = { r = if (r == v) null else v }, label = { Text("$v") }, modifier = Modifier.height(48.dp))
-                }
-            }
+            RpePicker(r, { r = it })
             OutlinedTextField(value = n, onValueChange = { n = it }, label = { Text(stringResource(R.string.session_notes)) }, modifier = Modifier.fillMaxWidth())
             Button(onClick = { onSave(r, n) }, modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.action_done)) }
         }

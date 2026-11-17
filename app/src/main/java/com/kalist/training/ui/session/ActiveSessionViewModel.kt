@@ -19,6 +19,7 @@ import com.kalist.training.ui.navigation.ActiveSessionRoute
 import com.kalist.training.util.Haptics
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -169,16 +170,25 @@ class ActiveSessionViewModel @Inject constructor(
         repository.setVariant(sessionExerciseId, variant)
     }
 
+    /** Guards against a double tap logging/advancing twice while a save is in flight. */
+    private var busy = false
+
     /** Logs the current set (saved immediately) and moves on. */
-    fun logCurrent() = viewModelScope.launch {
-        val ui = ui.value ?: return@launch
-        val step = ui.step ?: return@launch
-        val current = ui.current ?: return@launch
+    fun logCurrent() {
+        if (busy) return
+        busy = true
+        viewModelScope.launch {
+            try { logCurrentInternal() } finally { busy = false }
+        }
+    }
+
+    private suspend fun logCurrentInternal() {
+        val ui = ui.value ?: return
+        val step = ui.step ?: return
+        val current = ui.current ?: return
         stopwatch.value = null
         repository.logSet(current.sessionExercise.id, step.round, ui.input)
-        val updated = sessionFlow.filterNotNull().first { s ->
-            s.exercises.any { e -> e.sessionExercise.id == current.sessionExercise.id && e.logs.any { it.setIndex == step.round && it.value == ui.input } }
-        }
+        val updated = repository.getWithExercises(sessionId) ?: return
         advanceFrom(ui.copy(data = updated, exercises = updated.sortedExercises), startRestOnRoundChange = true)
     }
 
@@ -195,7 +205,7 @@ class ActiveSessionViewModel @Inject constructor(
         val current = ui.current ?: return@launch
         stopwatch.value = null
         repository.setSkipped(current.sessionExercise.id, true)
-        val updated = sessionFlow.filterNotNull().first { s -> s.exercises.any { it.sessionExercise.id == current.sessionExercise.id && it.sessionExercise.skipped } }
+        val updated = repository.getWithExercises(sessionId) ?: return@launch
         advanceFrom(ui.copy(data = updated, exercises = updated.sortedExercises), startRestOnRoundChange = false)
     }
 
@@ -279,27 +289,29 @@ class ActiveSessionViewModel @Inject constructor(
 
     private fun ensureTicker() {
         if (tickerJob?.isActive == true) return
-        tickerJob = viewModelScope.launch {
+        // Off the main thread: it only updates StateFlows and fires haptics.
+        tickerJob = viewModelScope.launch(Dispatchers.Default) {
             while (true) {
-                now.value = Instant.now(clock)
-                checkAlarms()
+                // Publish only when the displayed second changes: fewer recompositions, less battery.
+                val t = Instant.now(clock)
+                if (t.epochSecond != now.value.epochSecond || restEndsAt.value == null && stopwatch.value == null) now.value = t
+                checkAlarms(t)
                 if (restEndsAt.value == null && stopwatch.value == null) break
                 delay(200)
             }
         }
     }
 
-    private fun checkAlarms() {
-        val t = now.value
+    private fun checkAlarms(t: Instant) {
         restEndsAt.value?.let { end ->
             if (!restAlarmFired && !t.isBefore(end)) {
                 restAlarmFired = true
                 Haptics.alarm(context)
-                viewModelScope.launch { skipRest() }
+                viewModelScope.launch(Dispatchers.Main) { skipRest() }
             }
         }
         val ui = ui.value ?: return
-        val sw = ui.stopwatchSeconds ?: return
+        val sw = stopwatch.value?.let { Duration.between(it.startedAt, t).seconds - it.leadInSeconds } ?: return
         val current = ui.current ?: return
         if (current.exercise.targetType == TargetType.TIME && !targetAlarmFired && sw >= ui.input && ui.input > 0) {
             targetAlarmFired = true

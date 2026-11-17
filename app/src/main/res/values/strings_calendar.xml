@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Aujourd’hui</string>
+    <string name="calendar_plan">Planifier</string>
+    <string name="calendar_plan_title">Planifier le %1$s</string>
+    <string name="calendar_no_sessions">Aucune séance ce jour-là.</string>
+    <string name="calendar_running_reminder">Rappel : évitez de planifier une séance la veille d’un fractionné ou d’une sortie longue.</string>
+    <string name="calendar_in_progress">Séance en cours</string>
+    <string name="calendar_resume">Reprendre</string>
+    <string name="calendar_start">Démarrer</string>
+    <string name="calendar_this_week">Cette semaine</string>
+    <string name="calendar_week_progress">%1$d / %2$d séances</string>
+    <string name="calendar_next_suggestion">Prochain modèle :</string>
+    <string name="calendar_prev_month">Mois précédent</string>
+    <string name="calendar_next_month">Mois suivant</string>
+    <string name="calendar_mark_skipped">Marquer comme sautée</string>
+    <string name="calendar_mark_planned">Remettre en planifiée</string>
+    <string name="calendar_template_deleted">modèle supprimé</string>
+    <string name="status_planned">Planifiée</string>
+    <string name="status_in_progress">En cours</string>
+    <string name="status_completed">Terminée</string>
+    <string name="status_skipped">Sautée</string>
+    <plurals name="calendar_streak_weeks">
+        <item quantity="one">semaine de suite</item>
+        <item quantity="many">semaines de suite</item>
+        <item quantity="other">semaines de suite</item>
+    </plurals>
+    <plurals name="cd_sessions_done">
+        <item quantity="one">%1$d séance terminée</item>
+        <item quantity="many">%1$d séances terminées</item>
+        <item quantity="other">%1$d séances terminées</item>
+    </plurals>
+    <plurals name="cd_sessions_planned">
+        <item quantity="one">%1$d séance planifiée</item>
+        <item quantity="many">%1$d séances planifiées</item>
+        <item quantity="other">%1$d séances planifiées</item>
+    </plurals>
+</resources>

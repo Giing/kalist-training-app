@@ -8,6 +8,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Remove
 import androidx.compose.material3.FilledTonalIconButton
+import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -51,11 +52,9 @@ fun NumberStepper(
     ) {
         val decreaseLabel = stringResource(R.string.cd_decrease, label)
         val increaseLabel = stringResource(R.string.cd_increase, label)
-        FilledTonalIconButton(
-            onClick = { onValueChange((value - step).coerceIn(range)) },
-            enabled = value > range.first,
-            modifier = Modifier.size(buttonSize).semantics { contentDescription = decreaseLabel },
-        ) { Icon(Icons.Filled.Remove, null, Modifier.size(iconSize)) }
+        StepButton(compact, { onValueChange((value - step).coerceIn(range)) }, value > range.first, Modifier.size(buttonSize).semantics { contentDescription = decreaseLabel }) {
+            Icon(Icons.Filled.Remove, null, Modifier.size(iconSize))
+        }
         Text(
             text = display,
             style = style,
@@ -67,10 +66,15 @@ fun NumberStepper(
                     stateDescription = display
                 },
         )
-        FilledTonalIconButton(
-            onClick = { onValueChange((value + step).coerceIn(range)) },
-            enabled = value < range.last,
-            modifier = Modifier.size(buttonSize).semantics { contentDescription = increaseLabel },
-        ) { Icon(Icons.Filled.Add, null, Modifier.size(iconSize)) }
+        StepButton(compact, { onValueChange((value + step).coerceIn(range)) }, value < range.last, Modifier.size(buttonSize).semantics { contentDescription = increaseLabel }) {
+            Icon(Icons.Filled.Add, null, Modifier.size(iconSize))
+        }
     }
+}
+
+/** Outlined in forms (visible on any card color), filled tonal on the session screen. */
+@Composable
+private fun StepButton(compact: Boolean, onClick: () -> Unit, enabled: Boolean, modifier: Modifier, content: @Composable () -> Unit) {
+    if (compact) OutlinedIconButton(onClick = onClick, enabled = enabled, modifier = modifier) { content() }
+    else FilledTonalIconButton(onClick = onClick, enabled = enabled, modifier = modifier) { content() }
 }

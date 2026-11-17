@@ -64,4 +64,5 @@
         <item quantity="many">%1$d nouveaux records</item>
         <item quantity="other">%1$d nouveaux records</item>
     </plurals>
+    <string name="session_add_note">+ Ajouter une note</string>
 </resources>

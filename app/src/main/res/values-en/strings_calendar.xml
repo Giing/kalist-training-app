@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calendar_today">Today</string>
+    <string name="calendar_plan">Plan</string>
+    <string name="calendar_plan_title">Plan for %1$s</string>
+    <string name="calendar_no_sessions">No sessions on this day.</string>
+    <string name="calendar_running_reminder">Reminder: avoid planning a session the day before a hard run or a long run.</string>
+    <string name="calendar_in_progress">Session in progress</string>
+    <string name="calendar_resume">Resume</string>
+    <string name="calendar_start">Start</string>
+    <string name="calendar_this_week">This week</string>
+    <string name="calendar_week_progress">%1$d / %2$d sessions</string>
+    <string name="calendar_next_suggestion">Next template:</string>
+    <string name="calendar_prev_month">Previous month</string>
+    <string name="calendar_next_month">Next month</string>
+    <string name="calendar_mark_skipped">Mark as skipped</string>
+    <string name="calendar_mark_planned">Mark as planned again</string>
+    <string name="calendar_template_deleted">template deleted</string>
+    <string name="status_planned">Planned</string>
+    <string name="status_in_progress">In progress</string>
+    <string name="status_completed">Completed</string>
+    <string name="status_skipped">Skipped</string>
+    <plurals name="calendar_streak_weeks">
+        <item quantity="one">week streak</item>
+        <item quantity="other">week streak</item>
+    </plurals>
+    <plurals name="cd_sessions_done">
+        <item quantity="one">%1$d session completed</item>
+        <item quantity="other">%1$d sessions completed</item>
+    </plurals>
+    <plurals name="cd_sessions_planned">
+        <item quantity="one">%1$d session planned</item>
+        <item quantity="other">%1$d sessions planned</item>
+    </plurals>
+</resources>

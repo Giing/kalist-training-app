@@ -49,12 +49,18 @@ android {
     }
 
     sourceSets {
-        getByName("test").assets.directories.add("$projectDir/schemas")
+        // Room schemas for MigrationTestHelper (Robolectric reads the debug variant's assets).
+        getByName("debug").assets.directories.add("$projectDir/schemas")
     }
 
     testOptions {
         unitTests {
             isIncludeAndroidResources = true
+            all {
+                it.maxHeapSize = "3g"
+                it.systemProperty("robolectric.graphicsMode", "NATIVE")
+                it.systemProperty("screenshotDir", layout.buildDirectory.dir("screenshots").get().asFile.absolutePath)
+            }
         }
     }
 }
@@ -103,4 +109,7 @@ dependencies {
     testImplementation(libs.room.testing)
     testImplementation(platform(libs.compose.bom))
     testImplementation(libs.compose.ui.test.junit4)
+    testImplementation(libs.hilt.android.testing)
+    kspTest(libs.hilt.compiler)
+    testImplementation(libs.androidx.navigation.testing)
 }

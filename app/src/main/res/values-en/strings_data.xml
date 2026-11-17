@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_data">Local data</string>
+    <string name="settings_data_hint">Everything stays on this phone. Files are saved where you choose.</string>
+    <string name="data_export_json">Export a backup (JSON)</string>
+    <string name="data_import_json">Import a backup (JSON)</string>
+    <string name="data_export_csv">Export the journal (CSV)</string>
+    <string name="data_export_xlsx">Export the journal (Excel .xlsx)</string>
+    <string name="data_reset">Reset the app</string>
+    <string name="data_reset_title">Erase everything?</string>
+    <string name="data_reset_body">Exercises, templates, sessions and settings will be deleted, then the default exercises and A/B templates will be recreated. Export a backup first.</string>
+    <string name="data_reset_confirm">Erase everything</string>
+    <string name="data_reset_done">App reset</string>
+    <string name="data_import_title">Import the backup</string>
+    <string name="data_import_body">Merge adds what is missing without touching your data. Replace erases all current data first.</string>
+    <string name="data_import_merge">Merge</string>
+    <string name="data_import_replace">Replace</string>
+    <string name="data_import_done">Import done: %1$d exercises, %2$d templates, %3$d sessions added</string>
+    <string name="data_export_done">Export done</string>
+    <string name="data_invalid_backup">This file is not a valid Kalist backup.</string>
+    <string name="data_error">Error: %1$s</string>
+</resources>

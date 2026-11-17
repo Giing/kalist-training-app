@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_data">Données locales</string>
+    <string name="settings_data_hint">Tout reste sur ce téléphone. Les fichiers sont enregistrés où vous le choisissez.</string>
+    <string name="data_export_json">Exporter une sauvegarde (JSON)</string>
+    <string name="data_import_json">Importer une sauvegarde (JSON)</string>
+    <string name="data_export_csv">Exporter le journal (CSV)</string>
+    <string name="data_export_xlsx">Exporter le journal (Excel .xlsx)</string>
+    <string name="data_reset">Réinitialiser l’application</string>
+    <string name="data_reset_title">Tout effacer ?</string>
+    <string name="data_reset_body">Exercices, modèles, séances et réglages seront supprimés, puis les exercices et modèles A/B par défaut seront recréés. Pensez à exporter une sauvegarde avant.</string>
+    <string name="data_reset_confirm">Tout effacer</string>
+    <string name="data_reset_done">Application réinitialisée</string>
+    <string name="data_import_title">Importer la sauvegarde</string>
+    <string name="data_import_body">Fusionner ajoute ce qui manque sans toucher à vos données. Remplacer efface d’abord toutes les données actuelles.</string>
+    <string name="data_import_merge">Fusionner</string>
+    <string name="data_import_replace">Remplacer</string>
+    <string name="data_import_done">Import terminé : %1$d exercices, %2$d modèles, %3$d séances ajoutés</string>
+    <string name="data_export_done">Export terminé</string>
+    <string name="data_invalid_backup">Ce fichier n’est pas une sauvegarde Kalist valide.</string>
+    <string name="data_error">Erreur : %1$s</string>
+</resources>
