@@ -1,0 +1,86 @@
+name: Build APK
+
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-apk
+  cancel-in-progress: true
+
+env:
+  RELEASE_TAG: apk-latest
+  APK_NAME: kalist.apk
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for Android project
+        id: detect
+        run: |
+          if [ -f gradlew ]; then
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::No Gradle project (gradlew) yet; skipping APK build."
+          fi
+
+      - name: Set up JDK 17
+        if: steps.detect.outputs.present == 'true'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle
+        if: steps.detect.outputs.present == 'true'
+        uses: gradle/actions/setup-gradle@v4
+
+      # Fixed debug key so every build installs as an update over the previous one.
+      - name: Install shared debug keystore
+        if: steps.detect.outputs.present == 'true'
+        run: |
+          mkdir -p ~/.android
+          cp ci/debug.keystore ~/.android/debug.keystore
+
+      - name: Build debug APK
+        if: steps.detect.outputs.present == 'true'
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleDebug --stacktrace
+
+      - name: Collect APK
+        if: steps.detect.outputs.present == 'true'
+        run: |
+          APK=$(find . -path '*/build/outputs/apk/debug/*.apk' | head -n 1)
+          if [ -z "$APK" ]; then echo "::error::No APK produced"; exit 1; fi
+          cp "$APK" "$APK_NAME"
+
+      - name: Upload workflow artifact
+        if: steps.detect.outputs.present == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: kalist-${{ github.sha }}
+          path: ${{ env.APK_NAME }}
+
+      - name: Publish rolling release
+        if: steps.detect.outputs.present == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SHORT_SHA="${GITHUB_SHA::7}"
+          gh release delete "$RELEASE_TAG" --cleanup-tag --yes || true
+          gh release create "$RELEASE_TAG" "$APK_NAME" \
+            --target "$GITHUB_SHA" \
+            --prerelease \
+            --title "Latest build ($SHORT_SHA)" \
+            --notes "Debug APK built from \`${GITHUB_REF_NAME}\` @ ${SHORT_SHA}.
+
+          Direct download: https://github.com/${GITHUB_REPOSITORY}/releases/download/${RELEASE_TAG}/${APK_NAME}"
